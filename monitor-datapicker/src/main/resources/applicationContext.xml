@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <!-- 自动扫描 -->
+    <context:component-scan base-package="com.vrv.monitor.datapicker">
+        <context:exclude-filter type="regex" expression="com.vrv.monitor.datapicker.controller.api"/>
+    </context:component-scan>
+
+    <!-- 加载配置文件.properties中的内容 -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>file:${user.dir}/conf/userConfig.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <import resource="classpath:mybatis-config.xml"/>
+
+    <import resource="classpath:job-event.xml"/>
+
+    <bean id="jobFactory" class="com.vrv.monitor.datapicker.service.job.JobFactory"></bean>
+    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="jobFactory" ref="jobFactory"></property>
+        <property name="quartzProperties">
+            <map>
+                <entry key="org.quartz.threadPool.class">
+                    <value>org.quartz.simpl.SimpleThreadPool</value>
+                </entry>
+                <entry key="org.quartz.threadPool.threadCount">
+                    <value>50</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="activeMQConnectionListener" class="com.vrv.monitor.datapicker.service.common.ActiveMQConnectionListenerImpl">
+        <constructor-arg name="url" value="${mq.url}"></constructor-arg>
+        <constructor-arg name="logKey" value="${mq.logKey}"></constructor-arg>
+    </bean>
+
+    <bean id="policyMap" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="" value="pechorin@hero.org"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+</beans>

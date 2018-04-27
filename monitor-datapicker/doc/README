@@ -1,0 +1,11 @@
+一：安装
+1.rpm -ivh 包名称 (安装此rpm包)
+2.cd /usr/local/dataPicker （安装后，进入程序主目录）
+3.sh bin/run.sh start （运行启动脚本）
+
+二:卸载rpm包：
+1.cd /usr/local/dataPicker （进入程序主目录）
+2.sh bin/run.sh stop （停止当前服务进程）
+3.rpm -e (旧包名称)
+4.rm -rf /usr/local/dataPicker (清除程序运行产生的 信息)
+

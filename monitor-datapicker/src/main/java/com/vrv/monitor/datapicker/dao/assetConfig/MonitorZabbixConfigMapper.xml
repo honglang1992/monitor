@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.vrv.monitor.datapicker.dao.assetConfig.MonitorZabbixConfigDao">
+    <select id="query"
+            resultType="com.vrv.monitor.datapicker.model.assetConfig.MonitorZabbixConfig">
+        select config.* from asset inner join monitor_zabbix_config as config on asset.Guid = config.assetGuid
+        where asset.canMonitor="on" and  asset.protocol="zabbix" and config.`status`=1
+        <if test="networkClass != null and networkClass!='' ">
+            and asset.networkClass=#{networkClass}
+        </if>
+        <if test='areaCode != null and areaCode !="" '>
+            and asset.areaCode=#{areaCode}
+        </if>
+    </select>
+</mapper>

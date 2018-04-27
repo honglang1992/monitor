@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.vrv.monitor.datapicker.dao.assetConfig.AssetDao">
+    <select id="queryByProtocol" resultType="com.vrv.monitor.datapicker.model.assetConfig.MonitorSuite">
+        select * from asset where onMonitor="on" and protocol=#{protocol} and networkClass=#{networkClass} and areaCode=#{areaCode}
+    </select>
+</mapper>

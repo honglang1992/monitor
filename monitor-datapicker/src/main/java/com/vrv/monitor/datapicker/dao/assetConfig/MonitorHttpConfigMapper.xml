@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.vrv.monitor.datapicker.dao.assetConfig.MonitorHttpConfigDao">
+    <select id="query" resultType="com.vrv.monitor.datapicker.model.assetConfig.MonitorHttpConfig">
+        select guid as assetGuid ,employee_Code1 as httpConfigJson from asset
+        where  typeUnicode=#{typeUnicode} and networkClass=#{networkClass} and areaCode=#{areaCode}
+    </select>
+</mapper>
