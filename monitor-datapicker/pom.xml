@@ -120,36 +120,36 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>rpm-maven-plugin</artifactId>
-                <version>2.1.5</version>
-                <executions>
-                    <execution>
-                        <id>generate-pom</id>
-                        <goals>
-                            <goal>rpm</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <group>dataPicker</group>
-                    <license>VRV,2017</license>
-                    <release>v1.2</release>
-                    <needarch>noarch</needarch>
-                    <targetOS>linux</targetOS>
-                    <mappings>
-                        <mapping>
-                            <directory>/usr/local/dataPicker</directory>
-                            <sources>
-                                <source>
-                                    <location>target/monitor-datapicker-distribution/monitor-datapicker</location>
-                                </source>
-                            </sources>
-                        </mapping>
-                    </mappings>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>rpm-maven-plugin</artifactId>-->
+                <!--<version>2.1.5</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>generate-pom</id>-->
+                        <!--<goals>-->
+                            <!--<goal>rpm</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<group>dataPicker</group>-->
+                    <!--<license>VRV,2017</license>-->
+                    <!--<release>v1.2</release>-->
+                    <!--<needarch>noarch</needarch>-->
+                    <!--<targetOS>linux</targetOS>-->
+                    <!--<mappings>-->
+                        <!--<mapping>-->
+                            <!--<directory>/usr/local/dataPicker</directory>-->
+                            <!--<sources>-->
+                                <!--<source>-->
+                                    <!--<location>target/monitor-datapicker-distribution/monitor-datapicker</location>-->
+                                <!--</source>-->
+                            <!--</sources>-->
+                        <!--</mapping>-->
+                    <!--</mappings>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
 
         <resources>

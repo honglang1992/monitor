@@ -23,7 +23,7 @@ public class Application {
             //由于 某些属性要在spring启动之前读取，所以这里需要加载properties文件
             Properties prop = new Properties();
             InputStream in = new BufferedInputStream(new FileInputStream(System.getProperty("user.dir") + "/conf/userConfig.properties"));
-            prop.load(in);     ///加载属性列表
+            prop.load(in);     //加载属性列表
 
             //验证license
             String pubKey = prop.getProperty("pubKey","");

@@ -7,6 +7,10 @@
     <modules>
         <module>monitor-core</module>
         <module>monitor-datapicker</module>
+        <module>monitor-miner</module>
+        <module>monitor-test</module>
+        <module>monitor-test</module>
+        <module>monitor-test</module>
     </modules>
 
     <groupId>com.vrv.monitor</groupId>
@@ -201,9 +205,40 @@
                 <artifactId>javase</artifactId>
                 <version>${javase.version}</version>
             </dependency>
-
-
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>18.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.10</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.bitcoinj</groupId>
+                <artifactId>bitcoinj-core</artifactId>
+                <version>0.14.7</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bitcoinj</groupId>
+                <artifactId>bitcoinj-examples</artifactId>
+                <version>0.14.7</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-jdk14</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>wf.bitcoin</groupId>
+                <artifactId>JavaBitcoindRpcClient</artifactId>
+                <version>0.9.13</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
+
 </project>
