@@ -1,5 +1,6 @@
 package com.crazyitn.test.stock.example;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.crazyitn.test.stock.entity.StockVO;
 import com.vrv.monitor.core.util.HttpUtil;
@@ -13,8 +14,9 @@ public class StockExample {
         while(true){
             try {
                 StockVO stockVO = new StockVO();
-                String addr = "http://hq.sinajs.cn/list=" + "sz002423";
+                String addr = "http://hq.sinajs.cn/list=" + "sh500038";
                 String apiResult = HttpUtil.getInstance().get(addr);
+                logger.info("result:{}", JSON.toJSONString(apiResult));
                 String[] splitResult = apiResult.split(",");
                 stockVO.setName(splitResult[0].split("\"")[1]);
                 stockVO.setTodayOpenPrice(Double.valueOf(splitResult[1]));
@@ -28,7 +30,11 @@ public class StockExample {
                 }
 
                 Double increasePer = (stockVO.getCurrentPrice() - stockVO.getYesterdayClosePrice()) / stockVO.getYesterdayClosePrice() * 100;
-                stockVO.setIncreasePer(Double.valueOf(new java.text.DecimalFormat("#.00").format(increasePer)));
+                if(stockVO.getYesterdayClosePrice()==0){
+                    stockVO.setIncreasePer(0d);
+                }else{
+                    stockVO.setIncreasePer(Double.valueOf(new java.text.DecimalFormat("#.00").format(increasePer)));
+                }
                 logger.info("数据:{}",JSONObject.toJSONString(stockVO));
 
             }catch (Exception ex){
