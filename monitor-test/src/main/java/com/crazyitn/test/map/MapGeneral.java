@@ -12,7 +12,7 @@ import static java.lang.Math.E;
  * @author dendi
  * @date 2018/9/6 14:35
  */
-public class MapTest {
+public class MapGeneral {
     //Map的get方法到底是 引用类型吗 答案是的 就是的
     public static  void main(String[] args){
         Map<Integer,StockVO> map = new HashMap<>();
