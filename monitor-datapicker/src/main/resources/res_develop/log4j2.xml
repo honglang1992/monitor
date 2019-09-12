@@ -12,6 +12,7 @@
 				<!--<TimeBasedTriggeringPolicy/>-->
 				<SizeBasedTriggeringPolicy size="10 MB"/>
 			</Policies>
+
 			<DefaultRolloverStrategy max="7"/>
 		</RollingFile>
 		<RollingFile name="RollingFileInfo" fileName="logs/info.log"

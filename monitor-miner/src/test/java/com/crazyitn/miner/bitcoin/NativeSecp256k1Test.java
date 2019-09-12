@@ -14,3 +14,4 @@ public class NativeSecp256k1Test {
         System.out.println(result);
     }
 }
+
