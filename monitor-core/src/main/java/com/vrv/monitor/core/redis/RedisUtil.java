@@ -35,11 +35,10 @@ public class RedisUtil {
             // 控制一个pool最多有多少个状态为idle(空闲的)的jedis实例。
             config.setMaxIdle(2000);
             // 表示当borrow(引入)一个jedis实例时，最大的等待时间，如果超过等待时间，则直接抛出JedisConnectionException；
-            config.setMaxWaitMillis(1000 * 100);
+            config.setMaxWaitMillis(1000 * 10);
             config.setTestOnBorrow(true);
             pool = new JedisPool(config, ip, port, 100000,"12345679",2);
         }
-
     }
 
     public Jedis getJedis() {
