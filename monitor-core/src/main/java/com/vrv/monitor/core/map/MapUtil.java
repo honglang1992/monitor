@@ -15,10 +15,15 @@ public class MapUtil {
 //        queue.add("d");
 
 
-        ConcurrentHashMap<String, String> maps = new ConcurrentHashMap<>();
-        String a = "a";
-        System.out.println(maps.putIfAbsent(a, "sfsfss"));
-        System.out.println(maps.putIfAbsent(a,"secondvalue"));
-        System.out.println(JSONObject.valueToString(maps));
+//        ConcurrentHashMap<String, String> maps = new ConcurrentHashMap<>();
+//        String a = "a";
+//        System.out.println(maps.putIfAbsent(a, "sfsfss"));
+//        System.out.println(maps.putIfAbsent(a,"secondvalue"));
+//        System.out.println(JSONObject.valueToString(maps));
+
+        String a = new String("3");
+        String b = new String("3");
+        System.out.println(a.hashCode());
+        System.out.println(b.hashCode());
     }
 }

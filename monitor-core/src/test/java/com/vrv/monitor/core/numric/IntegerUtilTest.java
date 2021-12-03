@@ -10,7 +10,7 @@ public class IntegerUtilTest {
     public void testValueConvert(){
         IntegerUtil util = new IntegerUtil();
         Long l = 1000l;
-        util.addOne(l);
+
         System.out.println(l);
     }
 }

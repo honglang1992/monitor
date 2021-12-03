@@ -6,7 +6,9 @@ public class IntegerUtil {
         i = 3;
     }
 
-    public void addOne(Long l){
-        l=4l;
+
+    public static void main(String[] args) {
+        StringBuffer sb = new StringBuffer("直角的相交>");
+        System.out.println(sb.substring(0,sb.length()-1));
     }
 }

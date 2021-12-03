@@ -1192,4 +1192,39 @@ x	 * @return
 		int year = cal.get(Calendar.DAY_OF_MONTH);
 		return year;
 	}
+
+	/**
+	 *计算两个时间 相差天数
+	 */
+	public static int compareDays(Date startDate, Date endDate) {
+		Calendar calendar1 = Calendar.getInstance();
+		Calendar calendar2 = Calendar.getInstance();
+		calendar1.setTime(startDate);
+		calendar2.setTime(endDate);
+		int day1 = calendar1.get(Calendar.DAY_OF_YEAR);
+		int day2 = calendar2.get(Calendar.DAY_OF_YEAR);
+		int year1 = calendar1.get(Calendar.YEAR);
+		int year2 = calendar2.get(Calendar.YEAR);
+		if (year1 > year2) {
+			int tempyear = year1;
+			int tempday = day1;
+			day1 = day2;
+			day2 = tempday;
+			year1 = year2;
+			year2 = tempyear;
+		}
+		if (year1 == year2) {
+			return day2 - day1;
+		} else {
+			int DayCount = 0;
+			for (int i = year1; i < year2; i++) {
+				if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0) {
+					DayCount += 366;
+				} else {
+					DayCount += 365;
+				}
+			}
+			return DayCount + (day2 - day1);
+		}
+	}
 }

@@ -125,8 +125,7 @@ public class OptimisticLockTest {
                             break;
                         }
                     }else {
-                        System.out.println("很抱歉，库存为0，顾客:" + clientName + "没有抢到商品");
-                        break;
+                         break;
                     }
                 } catch (Exception e) {
                     // TODO: handle exception

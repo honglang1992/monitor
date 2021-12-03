@@ -15,7 +15,7 @@ public class encode {
         credentials[3]='4';
         credentials[4]='5';
         credentials[5]='6';
-        String databasepassword="0000000000000000043db1f2ceac91f2913c6c45c0e6bdf13f235e50"; //数据库中的加密过的密码
+        String databasepassword="cc1d9d9db1094334db77053df558018b868fd5a11319d883fdbb080e"; //数据库中的加密过的密码
         /*  byte[] salt1 = Encodes.decodeHex(databasepassword.substring(0,16));*/
         byte[] salt1=new byte[8];
         for (byte b : salt1) {
